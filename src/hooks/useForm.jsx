@@ -1,5 +1,6 @@
 //FOR VALIDATION
 import { useState } from "react";
+import { helpHttp } from "../helpers/helpHttp";
 
 export const useForm = (initialForm, validateForm) => {
   const [form, setForm] = useState(initialForm);
@@ -19,7 +20,27 @@ export const useForm = (initialForm, validateForm) => {
   };
 
   const handleSubmit = (e) => {
-    
+    e.preventDefault();
+    setErrors(validateForm(form));
+
+    if(Object.keys(errors).length===0){
+      alert("Enviando formulario");
+      setLoading(true);
+      const url="https://formsubmit.co/ajax/aaayza@gmail.com";
+      helpHttp().post(url, {
+        body: form,
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json'
+        }
+      })
+        .then(res=>{
+          setLoading(false);
+          setResponse(true); //request was made succesfully & data has sended
+        })
+    } else {
+      return;
+    }
   };
 
   return {
