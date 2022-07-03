@@ -24,7 +24,7 @@ export const useForm = (initialForm, validateForm) => {
     setErrors(validateForm(form));
 
     if(Object.keys(errors).length===0){
-      alert("Enviando formulario");
+      alert("Mensaje enviado!");
       setLoading(true);
       const url="https://formsubmit.co/ajax/aaayza@gmail.com";
       helpHttp().post(url, {
