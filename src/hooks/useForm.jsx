@@ -24,7 +24,7 @@ export const useForm = (initialForm, validateForm) => {
     setErrors(validateForm(form));
 
     if(Object.keys(errors).length===0){
-      alert("Mensaje enviado!");
+      alert("Message sent!");
       setLoading(true);
       const url="https://formsubmit.co/ajax/aaayza@gmail.com";
       helpHttp().post(url, {
@@ -37,6 +37,8 @@ export const useForm = (initialForm, validateForm) => {
         .then(res=>{
           setLoading(false);
           setResponse(true); //request was made succesfully & data has sended
+          setForm(initialForm);
+          setTimeout(()=>setResponse(false), 5000);
         })
     } else {
       return;

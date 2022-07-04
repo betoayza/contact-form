@@ -28,6 +28,12 @@ h2 {
     color: darkgoldenrod;
 }
 
+p {
+    font-style: italic;
+    color: #dc3545;
+    font-weight: bold;
+}
+
 #root {    
     height: 690px;
     width: auto;

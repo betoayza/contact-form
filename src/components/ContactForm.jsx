@@ -98,7 +98,7 @@ export const ContactForm = () => {
           name="comments"
           cols="50"
           rows="5"
-          placeholder="Comentarios..."
+          placeholder="Comments..."
           value={form.comments}
           onChange={handleChange}
           onBlur={handleBlur}
